@@ -300,7 +300,7 @@ class OptionConstantsTest(unittest.TestCase):
         curl.close()
 
     @util.min_libcurl(7, 71, 0)
-    @util.only_ssl
+    @util.only_ssl_backends('openssl')
     def test_issuercert_blob(self):
         curl = pycurl.Curl()
         curl.setopt(curl.ISSUERCERT_BLOB, 'bogus-issuercert-blob-as-str')
